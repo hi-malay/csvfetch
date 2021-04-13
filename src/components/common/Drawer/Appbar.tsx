@@ -18,7 +18,11 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { useState, useContext } from 'react';
 import { ContextMain } from './ContextMain';
 import Button from '@material-ui/core/Button';
-import Modal from '@material-ui/core/Modal';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 function rand() {
     return Math.round(Math.random() * 20) - 10;
@@ -37,14 +41,7 @@ function getModalStyle() {
 
 
 const useStyles = makeStyles((theme) => ({
-    paper: {
-        position: 'absolute',
-        width: 400,
-        backgroundColor: theme.palette.background.paper,
-        border: '2px solid #000',
-        boxShadow: theme.shadows[5],
-        padding: theme.spacing(2, 4, 3),
-    },
+
     grow: {
         flexGrow: 1,
     },
@@ -110,7 +107,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PrimarySearchAppBar(props: any) {
     const classes = useStyles();
-    const [modalStyle] = React.useState(getModalStyle);
+
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [dataInp, setDataInp] = React.useState("");
     const [constData, setconstData] = React.useState();
@@ -240,22 +237,19 @@ export default function PrimarySearchAppBar(props: any) {
                         </IconButton>
                     </div>
                 </Toolbar>
-
-                <Modal
+                <Dialog
                     open={open}
                     onClose={handleClose}
-                    aria-labelledby="simple-modal-title"
-                    aria-describedby="simple-modal-description"
-                    className="main-modal-csv"
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
                 >
-                    <div style={modalStyle} className={classes.paper}>
-                        {console.log("props", props)}
-                        {/* {props.cartData.length !== 0 ? */}
+                    <DialogTitle id="alert-dialog-title">{"Cart"}</DialogTitle>
+                    <DialogContent>
                         {props.cartData.map((data: any) => {
                             return (
                                 <>
                                     <div className="row">
-                                        <div className="col-md-2 mt-3">
+                                        <div className="col-md-2 mt-2">
                                             <img src={data.image} width="80" height="80" />
                                         </div>
 
@@ -270,12 +264,15 @@ export default function PrimarySearchAppBar(props: any) {
                                 </>
                             )
                         })}
+                    </DialogContent>
+                    <DialogActions>
 
-                        {/* : <Typography component="h4" className="modal-title mt-3">Nothing Added</Typography> */}
-                        {/* } */}
+                        <Button onClick={handleClose} color="primary" autoFocus>
+                            Agree
+          </Button>
+                    </DialogActions>
+                </Dialog>
 
-                    </div>
-                </Modal>
             </AppBar>
             {renderMobileMenu}
 
