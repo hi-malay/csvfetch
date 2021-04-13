@@ -1,6 +1,6 @@
-## Payment Wallet
+## CSV Fetching Shopping APP
 
-### Demo link: "https://hi-malay.github.io/template"
+### Demo link: "https://hi-malay.github.io/csvfetch"
 
 
 ## Steps to run front-end:
