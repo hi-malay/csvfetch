@@ -10,8 +10,7 @@
 4. npm start
 5. go to: http://localhost:3000 on browser
 
-# Note
-Add CSV file repo itself
+# Note: Add CSV file from repo itself
 
 CSV fetch app lets you:
 1. Upload CSV file
