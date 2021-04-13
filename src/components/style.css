@@ -1,0 +1,352 @@
+.MuiPaper-root {
+    margin: 0 auto;
+}
+
+.btn-class.MuiButton-root {
+    border: unset !important;
+    outline: unset !important;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    min-width: 150px;
+    min-height: 44px;
+    border-radius: 28px;
+    background-color: #00b464 !important;
+    color: #ffffff;
+    box-shadow: unset;
+    text-transform: none;
+}
+
+.menu-tab {
+    min-width: 900px;
+
+}
+
+.btn-class.MuiButton-root :hover {
+    box-shadow: unset;
+}
+
+.MuiPaper-root.MuiTableContainer-root {
+    min-width: 800px !important;
+    margin-top: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.12)
+}
+
+.MuiTypography-h5.main-title {
+    color: #00b464 !important;
+}
+
+.MuiCardContent-root {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.MuiPaper-root.MuiCard-root {
+    box-shadow: 0px 25px 30px rgba(112, 136, 210, 0.2);
+    margin-top: 60px;
+}
+
+.MuiPaper-root.MuiMenu-paper.MuiPopover-paper.MuiPaper-elevation8.MuiPaper-rounded {
+    top: 174 !important;
+}
+
+.btn-class-default.MuiButton-root {
+    border: unset !important;
+    font-family: "Roboto", sans-serif;
+    outline: unset !important;
+    font-size: 1rem;
+    font-weight: 500;
+    min-width: 150px;
+    min-height: 44px;
+    border-radius: 28px;
+    background-color: #e7e7f0 !important;
+    color: #000;
+    box-shadow: unset;
+    text-transform: none;
+}
+
+.btn-class-add.MuiButton-root {
+    border: unset !important;
+    font-family: "Roboto", sans-serif;
+    outline: unset !important;
+    font-size: 1rem;
+    font-weight: 500;
+    min-width: 100px;
+    min-height: 34px;
+    border-radius: 18px;
+    background-color: #d7d7f5 !important;
+    color: #000;
+    box-shadow: unset;
+    text-transform: none;
+}
+
+.MuiFormHelperText-root {
+    color: red !important;
+}
+
+.MuiTypography-root.MuiListItemText-primary.MuiTypography-body1 {
+    font-weight: bold;
+}
+
+.btn-class-default.MuiButton-root :hover {
+    box-shadow: unset;
+}
+
+.max-width-in {
+    padding-left: 40px;
+}
+
+.MuiDialog-paperWidthSm {
+    max-width: 650px !important;
+    width: 100% !important;
+    border-radius: 20px !important;
+    padding: 20px;
+}
+
+.MuiFormControl-root {
+    width: 170px;
+}
+
+.MuiPaper-root.MuiCard-root {
+    max-width: 950px;
+    width: 100%;
+}
+
+.error_box {
+    font-size: 16px;
+    font-weight: 500;
+    color: red;
+}
+
+.question {
+    font-size: 20px;
+    color: rgba(0, 38, 255, 0.973);
+}
+
+.child-div {
+    background: #FFFFFF;
+    /* box-shadow: 0px 5px 30px rgba(112, 136, 210, 0.2); */
+    border-radius: 10px;
+    border: 1px solid #B1B1B1;
+    padding: 12px;
+    min-width: 150px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #000;
+}
+
+.option {
+    font-size: 16px;
+    color: #000;
+}
+
+.child-div:hover,
+.child-div:focus {
+    box-shadow: 0px 25px 30px rgba(112, 136, 210, 0.2);
+}
+
+.error_que {
+    font-size: 21px;
+    color: red;
+}
+
+.login-button {
+    list-style: none !important;
+    text-decoration: none !important;
+}
+
+.table-loader {
+    color: #00b464 !important;
+    position: relative;
+    margin: 20% auto 10% auto;
+    left: 142%;
+}
+
+
+.modal-title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+    text-align: center;
+    color: #212B36;
+}
+
+.modal-title-green {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+    text-align: center;
+    color: #00b464;
+}
+
+.modal-title-red {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+    text-align: center;
+    color: #f30000;
+}
+
+.modal-subtitle {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    /* identical to box height, or 200% */
+    text-align: center;
+    margin: 0 auto;
+    color: #014077;
+    min-height: 80px;
+
+}
+
+.MuiTypography-body1.modal-title-price-new {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 28px;
+    /* identical to box height, or 200% */
+    margin: 0 auto;
+    color: #014077;
+}
+
+.card-padding {
+    padding: 10px;
+    border: 1px solid rgb(233, 231, 231);
+    margin-bottom: 20px;
+}
+
+.csv-img {
+    border-radius: 12px;
+    min-height: 200px;
+}
+
+.modal-title-price {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height, or 200% */
+    text-align: center;
+    margin: 0 auto;
+    color: #77011b;
+
+}
+
+.MuiChip-root.chips-style.MuiChip-outlined {
+
+    height: 42px !important;
+    cursor: pointer;
+}
+
+.MuiChip-label {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    /* identical to box height, or 200% */
+    text-align: center;
+
+    margin: 0 auto;
+    color: #014077;
+}
+
+.cursor-on {
+    cursor: pointer;
+}
+
+.Content-dashboard {
+    position: relative;
+    margin-top: 100px;
+}
+
+div.max-width {
+    min-width: 1270px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+div.max-width.max-width-padd {
+    padding: 0 20px;
+}
+
+
+
+.drawer-visible-xs {
+    display: none !important;
+}
+
+.login-style {
+    font-size: 16px;
+    color: rgb(102, 120, 226);
+    font-weight: bold;
+    font-style: italic;
+    cursor: pointer;
+}
+
+.home-card {
+    padding: 0 0 30px 0;
+    border: 1px solid rgba(0, 0, 0, 0.12)
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Helvetica", sans-serif;
+}
+
+.container {
+    text-align: center;
+    padding: 15px;
+    margin: 10px auto;
+}
+
+.csv-input {
+    padding: 10px;
+    display: block;
+    margin: 15px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.container p {
+    padding-top: 10px;
+    color: #666;
+}
+
+@media (max-width: 991px) {
+    .drawer-visible-xs {
+        display: inline-flex !important;
+    }
+
+    .custom-card.card-dashboard .card-bg-grey-user {
+        width: 100%;
+        height: auto;
+        padding: 15px 15px;
+    }
+
+    .custom-horizontal-tab.visible-xs {
+        display: flex !important;
+    }
+
+    .visible-xs {
+        display: block;
+    }
+
+    .bg-grey {
+        background: #fff;
+    }
+
+    .max-width-in {
+        padding-left: unset;
+    }
+
+    .MuiPaper-root.MuiTableContainer-root {
+        min-width: unset !important;
+    }
+
+}
