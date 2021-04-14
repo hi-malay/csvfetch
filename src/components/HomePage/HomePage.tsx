@@ -8,6 +8,7 @@ import LazyLoad from 'react-lazyload';
 import AppBar from "../common/Drawer/Appbar"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ReactGA from 'react-ga'
 
 class HomePage extends React.Component<any,
     {
@@ -53,7 +54,11 @@ class HomePage extends React.Component<any,
             pauseOnHover: true,
             draggable: true,
         });
-
+        ReactGA.event({
+            category: `Add to cart`,
+            action: 'add to cart',
+            label: 'add to cart'
+        });
     }
 
     removeToCart = (product: any) => {
@@ -73,7 +78,11 @@ class HomePage extends React.Component<any,
                     )
                 })
             }
-
+            ReactGA.event({
+                category: `Remove from cart`,
+                action: 'Remove from cart',
+                label: 'Remove from cart'
+            });
             toast.warn('Removed from Cart', {
                 position: "top-center",
                 autoClose: 2000,
@@ -86,7 +95,15 @@ class HomePage extends React.Component<any,
         }
     }
 
-
+    componentDidMount = () => {
+        ReactGA.set({ page: '/home' })
+        ReactGA.pageview('/home');
+        ReactGA.event({
+            category: `Page`,
+            action: 'Home',
+            label: 'Home Rendered'
+        });
+    }
     render() {
 
         return (

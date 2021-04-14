@@ -23,7 +23,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-
+import ReactGA from 'react-ga'
 
 function rand() {
     return Math.round(Math.random() * 20) - 10;
@@ -186,6 +186,11 @@ export default function PrimarySearchAppBar(props: any) {
         else {
             contxtApi.userData[1](constData)
         }
+        ReactGA.event({
+            category: `Filter CLicked`,
+            action: 'Filter CLicked',
+            label: 'Filter CLicked'
+        });
     }
 
 

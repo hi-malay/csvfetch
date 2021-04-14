@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -12,6 +12,7 @@ import {
 import CSVReader from "react-csv-reader";
 import { useState, useContext } from 'react';
 import { ContextMain } from '../common/Drawer/ContextMain';
+import ReactGA from 'react-ga'
 
 const useStyles = makeStyles({
     root: {
@@ -49,8 +50,21 @@ export default function OutlinedCard() {
         // console.log(data, fileInfo);
         setCsvData(data)
         contxtApi.userData[1](data)
+        ReactGA.event({
+            category: `Choose File Click`,
+            action: 'Choose Modal',
+            label: 'Choose Modal renders'
+        });
     }
-
+    useEffect(() => {
+        ReactGA.set({ page: '/login' })
+        ReactGA.pageview('/login');
+        ReactGA.event({
+            category: `Page`,
+            action: 'Login',
+            label: 'Login Rendered'
+        });
+    })
     return (
         <Card className={classes.root} variant="outlined">
             <CardContent>
