@@ -7,8 +7,8 @@ import './bootstrap.min.css';
 import ReactGA from 'react-ga';
 
 const key: any = process.env.REACT_APP_GA;
-ReactGA.initialize("G-15Z0ZH2XVK");
-
+ReactGA.initialize("UA-194572952-1");
+ReactGA.pageview(window.location.pathname + window.location.search);
 ReactDOM.render(
   <React.StrictMode>
     <App />
