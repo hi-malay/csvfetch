@@ -19,6 +19,11 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
 
 function rand() {
     return Math.round(Math.random() * 20) - 10;
@@ -108,6 +113,7 @@ export default function PrimarySearchAppBar(props: any) {
     const [dataInp, setDataInp] = React.useState("");
     const [constData, setconstData] = React.useState();
     const [open, setOpen] = React.useState(false);
+    const [option, setOption] = React.useState('');
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
     const contxtApi: any = useContext(ContextMain)
     const isMenuOpen = Boolean(anchorEl);
@@ -173,19 +179,18 @@ export default function PrimarySearchAppBar(props: any) {
 
 
     const searchData = () => {
-
         if (dataInp !== "") {
-            const data = contxtApi.userData[0].filter((data: any) => data.occasion !== null && data.occasion !== undefined).filter((data: any) => data.occasion.toLowerCase().indexOf(dataInp.toLowerCase()) >= 0)
+            const data = contxtApi.userData[0].filter((data: any) => data.occasion !== null && data.occasion !== undefined).filter((data: any) => data.occasion.toLowerCase().indexOf(option.toLowerCase()) >= 0)
             contxtApi.userData[1](data)
         }
         else {
             contxtApi.userData[1](constData)
-
         }
 
     }
     const handleChange = (e: any) => {
         setDataInp(e.target.value)
+        setOption(e.target.value);
     }
     return (
         <div className={classes.grow}>
@@ -210,6 +215,22 @@ export default function PrimarySearchAppBar(props: any) {
                         />
 
                     </div>
+
+                    <FormControl variant="outlined" className="ml-2 mr-3 ">
+                        <InputLabel id="demo-simple-select-outlined-label">Filter Occasion</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-outlined-label"
+                            id="demo-simple-select-outlined"
+                            value={option}
+                            onChange={handleChange}
+                        >
+                            <MenuItem value="Daily">Daily Wear</MenuItem>
+                            <MenuItem value="Party">Party Wear</MenuItem>
+                            <MenuItem value="Traditional">Traditional Wear</MenuItem>
+                            <MenuItem value="Engagement">Engagement Wear</MenuItem>
+                            <MenuItem value="Work">Work Wear</MenuItem>
+                        </Select>
+                    </FormControl>
                     <Button variant="contained" className="btn-class" color="primary" onClick={searchData}>Search</Button>
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
@@ -233,6 +254,7 @@ export default function PrimarySearchAppBar(props: any) {
                         </IconButton>
                     </div>
                 </Toolbar>
+
                 <Dialog
                     open={open}
                     onClose={handleClose}
@@ -240,26 +262,30 @@ export default function PrimarySearchAppBar(props: any) {
                     aria-describedby="alert-dialog-description"
                 >
                     <DialogTitle id="alert-dialog-title">{"Cart"}</DialogTitle>
-                    <DialogContent>
-                        {props.cartData.map((data: any) => {
-                            return (
-                                <>
-                                    <div className="row">
-                                        <div className="col-md-2 mt-2">
-                                            <img src={data.image} width="80" height="80" />
-                                        </div>
 
-                                        <div className="col-md-5 offset-1">
-                                            <Typography component="h4" className="modal-title mt-3">{data.name}</Typography>
+                    <DialogContent>
+                        {props.cartData.length > 0 ?
+                            props.cartData.map((data: any) => {
+                                return (
+                                    <>
+                                        <div className="row">
+                                            <div className="col-md-2 mt-2">
+                                                <img src={data.image} width="80" height="80" />
+                                            </div>
+
+                                            <div className="col-md-5 offset-1">
+                                                <Typography component="h4" className="modal-title mt-3">{data.name}</Typography>
+                                            </div>
+                                            <div className="col-md-4">
+                                                <Typography component="h4" className="modal-subtitle mt-3">Item Qty: <b>{data.qty}</b></Typography>
+                                            </div>
                                         </div>
-                                        <div className="col-md-4">
-                                            <Typography component="h4" className="modal-subtitle mt-3">Item Qty: <b>{data.qty}</b></Typography>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                </>
-                            )
-                        })}
+                                        <hr />
+                                    </>
+                                )
+                            }) : <Typography component="h4" className="modal-subtitle mt-3"><b>Please add something to cart</b></Typography>
+                        }
+
                     </DialogContent>
                     <DialogActions>
 

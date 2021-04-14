@@ -48,38 +48,42 @@ class HomePage extends React.Component<any,
         this.setState({ redirect: true })
         toast.success('Added To Cart', {
             position: "top-center",
-            autoClose: 5000,
+            autoClose: 2000,
             hideProgressBar: true,
+            pauseOnHover: true,
+            draggable: true,
         });
 
     }
 
     removeToCart = (product: any) => {
-        const exist = this.state.data_arr.find((x: any) => x.id === product.id);
-        //  console.log("exist", exist)
-        if (exist.qty === 1) {
-            this.setState({
-                data_arr:
-                    this.state.data_arr.filter((x: any) => x.id !== product.id)
+        if (this.state.data_arr.length > 0) {
+            const exist = this.state.data_arr.find((x: any) => x.id === product.id);
+            //  console.log("exist", exist)
+            if (exist.qty === 1) {
+                this.setState({
+                    data_arr:
+                        this.state.data_arr.filter((x: any) => x.id !== product.id)
 
-            })
-        } else {
-            this.setState({
-                data_arr: this.state.data_arr.map((x: any) =>
-                    x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
-                )
-            })
+                })
+            } else {
+                this.setState({
+                    data_arr: this.state.data_arr.map((x: any) =>
+                        x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
+                    )
+                })
+            }
+
+            toast.warn('Removed from Cart', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
-
-        toast.warn('Removed from Cart', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-        });
     }
 
 
@@ -114,7 +118,7 @@ class HomePage extends React.Component<any,
 
                     <ToastContainer
                         position="top-center"
-                        autoClose={5000}
+                        autoClose={2000}
                         hideProgressBar
                         newestOnTop
                         closeOnClick

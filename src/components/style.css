@@ -275,7 +275,15 @@ div.max-width.max-width-padd {
     padding: 0 20px;
 }
 
+.MuiFormControl-root {
+    background-color: white;
+    border-radius: 12px;
 
+}
+
+.MuiAppBar-colorPrimary {
+    background-color: rgb(99, 95, 95) !important;
+}
 
 .drawer-visible-xs {
     display: none !important;
