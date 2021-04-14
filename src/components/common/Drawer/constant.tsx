@@ -10,7 +10,7 @@ export const PAGE_TWO_ERROR_TEXT = {
     "roomErrorLabel": "one room should have minimum 2 users"
 
 }
-console.log("data", process.env.REACT_URL)
+
 export const API = {
 
 }

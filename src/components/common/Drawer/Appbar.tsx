@@ -10,9 +10,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { useState, useContext } from 'react';
@@ -21,7 +18,6 @@ import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 function rand() {
@@ -138,7 +134,7 @@ export default function PrimarySearchAppBar(props: any) {
         if (contxtApi.userData[0] != undefined) {
             setconstData(contxtApi.userData[0])
         }
-        console.log("pp", contxtApi.userData[0])
+
     }, [])
 
     const menuId = 'primary-search-account-menu';
@@ -184,7 +180,7 @@ export default function PrimarySearchAppBar(props: any) {
         }
         else {
             contxtApi.userData[1](constData)
-            // console.log("pnp", constData.userData.userData[0])
+
         }
 
     }
@@ -195,7 +191,7 @@ export default function PrimarySearchAppBar(props: any) {
         <div className={classes.grow}>
             <AppBar position="static">
                 <Toolbar>
-                    {console.log("men", contxtApi.userData[0])}
+
                     <Typography className={classes.title} variant="h6" noWrap>
                         Yfret
           </Typography>

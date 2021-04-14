@@ -46,7 +46,7 @@ export default function OutlinedCard() {
     };
 
     const handleForce = (data: any, fileInfo: any) => {
-        console.log(data, fileInfo);
+        // console.log(data, fileInfo);
         setCsvData(data)
         contxtApi.userData[1](data)
     }
@@ -74,7 +74,7 @@ export default function OutlinedCard() {
             <CardActions>
                 <Button size="small">By: Malay Mishra</Button>
                 <Button size="small">Environment: {process.env.REACT_APP_ENV}</Button>
-                {console.log("cons", process.env)}
+
             </CardActions>
         </Card>
     );

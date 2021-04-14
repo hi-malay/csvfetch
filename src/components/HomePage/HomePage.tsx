@@ -1,39 +1,18 @@
 import { Card, Typography } from '@material-ui/core';
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import InputLabel from '@material-ui/core/InputLabel';
-import { PAGE_TWO_ERROR_TEXT } from './../common/Drawer/constant';
-import { Redirect } from "react-router-dom";
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import CircularProgress from '@material-ui/core/CircularProgress';
+
 import { ContextMain } from "./../common/Drawer/ContextMain"
-import TextField from '@material-ui/core/TextField';
-import Chip from '@material-ui/core/Chip';
-import deleteIcon from "../HomePage/ic_close_blue.svg"
+
 import LazyLoad from 'react-lazyload';
 import AppBar from "../common/Drawer/Appbar"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class HomePage extends React.Component<any,
     {
-        name: string,
-        nameError: boolean,
-        nameErrorLabel: string,
-        saveDetailsEnable: any,
-        date_match_modal: boolean,
+
         data_arr: any,
-        roomErrorLabel: string,
-        roomError: boolean,
-        room: string,
-        room2ErrorLabel: string,
-        room2Error: boolean,
-        room2: string,
         redirect: boolean
 
 
@@ -46,17 +25,7 @@ class HomePage extends React.Component<any,
         this.state =
         {
 
-            name: '',
-            nameError: false,
-            nameErrorLabel: '',
-            saveDetailsEnable: true,
-            date_match_modal: false,
-            roomErrorLabel: '',
-            roomError: false,
-            room: '',
-            room2ErrorLabel: '',
-            room2Error: false,
-            room2: '',
+
             redirect: false,
             data_arr: []
         }
@@ -64,7 +33,7 @@ class HomePage extends React.Component<any,
 
     addToCart = (product: any) => {
         const exist = this.state.data_arr.find((x: any) => x.id === product.id);
-        console.log("exist", exist)
+
         if (exist) {
             this.setState({
                 data_arr:
@@ -76,11 +45,18 @@ class HomePage extends React.Component<any,
         } else {
             this.setState({ data_arr: [...this.state.data_arr, { ...product, qty: 1 }] })
         }
+        this.setState({ redirect: true })
+        toast.success('Added To Cart', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: true,
+        });
+
     }
 
     removeToCart = (product: any) => {
         const exist = this.state.data_arr.find((x: any) => x.id === product.id);
-        console.log("exist", exist)
+        //  console.log("exist", exist)
         if (exist.qty === 1) {
             this.setState({
                 data_arr:
@@ -94,6 +70,16 @@ class HomePage extends React.Component<any,
                 )
             })
         }
+
+        toast.warn('Removed from Cart', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
     }
 
 
@@ -126,6 +112,17 @@ class HomePage extends React.Component<any,
                         }) : <Typography component="h4" className="modal-title-price-new mt-3"><b>Please add CSV file </b></Typography>
                     }
 
+                    <ToastContainer
+                        position="top-center"
+                        autoClose={5000}
+                        hideProgressBar
+                        newestOnTop
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                    />
                 </div>
             </div >
         );
