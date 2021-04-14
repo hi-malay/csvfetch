@@ -108,14 +108,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PrimarySearchAppBar(props: any) {
     const classes = useStyles();
-
+    const contxtApi: any = useContext(ContextMain)
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [dataInp, setDataInp] = React.useState("");
-    const [constData, setconstData] = React.useState();
+    const [constData, setconstData] = React.useState(contxtApi.userData[0]);
     const [open, setOpen] = React.useState(false);
     const [option, setOption] = React.useState('');
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-    const contxtApi: any = useContext(ContextMain)
+
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -180,14 +180,15 @@ export default function PrimarySearchAppBar(props: any) {
 
     const searchData = () => {
         if (option !== "") {
-            const data = contxtApi.userData[0].filter((data: any) => data.occasion !== null && data.occasion !== undefined).filter((data: any) => data.occasion.toLowerCase().indexOf(option.toLowerCase()) >= 0)
+            const data = constData.filter((data: any) => data.occasion !== null && data.occasion !== undefined).filter((data: any) => data.occasion.toLowerCase().indexOf(option.toLowerCase()) >= 0)
             contxtApi.userData[1](data)
         }
         else {
             contxtApi.userData[1](constData)
         }
-
     }
+
+
     const handleChange = (e: any) => {
         setDataInp(e.target.value)
         setOption(e.target.value);
@@ -200,23 +201,9 @@ export default function PrimarySearchAppBar(props: any) {
                     <Typography className={classes.title} variant="h6" noWrap>
                         Yfret
           </Typography>
-                    <div className={classes.search}>
-                        <div className={classes.searchIcon}>
-                            <SearchIcon />
-                        </div>
-                        <InputBase
-                            placeholder="Search…"
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                            onChange={e => handleChange(e)}
-                            inputProps={{ 'aria-label': 'search' }}
-                        />
 
-                    </div>
 
-                    <FormControl variant="outlined" className="ml-2 mr-3 ">
+                    <FormControl variant="outlined" className="ml-5 mr-5">
                         <InputLabel id="demo-simple-select-outlined-label">Filter Occasion</InputLabel>
                         <Select
                             labelId="demo-simple-select-outlined-label"
