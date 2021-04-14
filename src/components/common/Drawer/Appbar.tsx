@@ -179,7 +179,7 @@ export default function PrimarySearchAppBar(props: any) {
 
 
     const searchData = () => {
-        if (dataInp !== "") {
+        if (option !== "") {
             const data = contxtApi.userData[0].filter((data: any) => data.occasion !== null && data.occasion !== undefined).filter((data: any) => data.occasion.toLowerCase().indexOf(option.toLowerCase()) >= 0)
             contxtApi.userData[1](data)
         }
