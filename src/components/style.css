@@ -266,7 +266,7 @@
 }
 
 div.max-width {
-    min-width: 1270px;
+    max-width: 1470px;
     width: 100%;
     margin: 0 auto;
 }
